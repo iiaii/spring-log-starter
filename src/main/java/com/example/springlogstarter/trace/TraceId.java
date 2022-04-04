@@ -29,11 +29,11 @@ public class TraceId {
                 .substring(0, UUID_SIZE);
     }
 
-    private TraceId createNextId() {
+    public TraceId createNextId() {
         return new TraceId(id, level + 1);
     }
 
-    private TraceId createPreviousId() {
+    public TraceId createPreviousId() {
         return new TraceId(id, level + 1);
     }
 
