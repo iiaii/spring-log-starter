@@ -1,20 +1,21 @@
-package com.example.springlogstarter.v1;
+package com.example.springlogstarter.app.v2;
 
+import com.example.springlogstarter.trace.TraceId;
 import com.example.springlogstarter.trace.TraceStatus;
-import com.example.springlogstarter.trace.hellotrace.HelloTraceV1;
+import com.example.springlogstarter.trace.hellotrace.HelloTraceV2;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class OrderRepositoryV1 {
+public class OrderRepositoryV2 {
 
-    private final HelloTraceV1 trace;
+    private final HelloTraceV2 trace;
 
-    public void save(String itemId) {
+    public void save(TraceId traceId, String itemId) {
         TraceStatus status = null;
         try {
-            status = trace.begin("OrderRepository.save()");
+            status = trace.beginSync(traceId, "OrderRepository.save()");
             // 저장 로직
             if (itemId.equals("ex")) {
                 throw new IllegalStateException("예외 발생!");

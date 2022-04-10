@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 @Slf4j
-@Component
 public class ThreadLocalLogTrace implements LogTrace {
 
     private static final String START_PREFIX = "-->";

@@ -1,4 +1,4 @@
-package com.example.springlogstarter.v0;
+package com.example.springlogstarter.app.v0;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

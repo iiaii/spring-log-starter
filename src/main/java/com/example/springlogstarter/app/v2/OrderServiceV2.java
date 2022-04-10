@@ -1,4 +1,4 @@
-package com.example.springlogstarter.v2;
+package com.example.springlogstarter.app.v2;
 
 import com.example.springlogstarter.trace.TraceId;
 import com.example.springlogstarter.trace.TraceStatus;

@@ -1,24 +1,24 @@
-package com.example.springlogstarter.v2;
+package com.example.springlogstarter.app.v1;
 
 import com.example.springlogstarter.trace.TraceStatus;
-import com.example.springlogstarter.trace.hellotrace.HelloTraceV2;
+import com.example.springlogstarter.trace.hellotrace.HelloTraceV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class OrderControllerV2 {
+public class OrderControllerV1 {
 
-    private final OrderServiceV2 orderService;
-    private final HelloTraceV2 trace;
+    private final OrderServiceV1 orderService;
+    private final HelloTraceV1 trace;
 
-    @GetMapping("/v2/request")
+    @GetMapping("/v1/request")
     public String request(String itemId) {
         TraceStatus status = null;
         try {
             status = trace.begin("OrderController.request()");
-            orderService.orderItem(status.getTraceId(), itemId);
+            orderService.orderItem(itemId);
             trace.end(status);
         } catch (Exception e) {
             trace.exception(status, e);

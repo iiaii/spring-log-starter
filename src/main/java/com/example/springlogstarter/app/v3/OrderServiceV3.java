@@ -1,17 +1,17 @@
-package com.example.springlogstarter.v1;
+package com.example.springlogstarter.app.v3;
 
+import com.example.springlogstarter.trace.TraceId;
 import com.example.springlogstarter.trace.TraceStatus;
-import com.example.springlogstarter.trace.hellotrace.HelloTraceV1;
+import com.example.springlogstarter.trace.logtrace.LogTrace;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
 @RequiredArgsConstructor
-public class OrderServiceV1 {
+public class OrderServiceV3 {
 
-    private final OrderRepositoryV1 orderRepository;
-    private final HelloTraceV1 trace;
+    private final OrderRepositoryV3 orderRepository;
+    private final LogTrace trace;
 
     public void orderItem(String itemId) {
         TraceStatus status = null;
